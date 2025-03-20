@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шедевры Карла Росси</title>
+    <style>
+      :root {
+        --accent: #c59d5f;
+        --border: #333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background: #000;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 3px solid var(--accent);
+      }
+
+      .map-container {
+        width: 90%;
+        margin: 2rem auto;
+        box-shadow: 0 0 15px rgba(197, 157, 95, 0.3);
+      }
+
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+
+      /* Карточки */
+      .cards-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 0;
+      }
+
+      .card {
+        background: #111;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 2rem auto;
+        width: 90%;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 400px;
+      }
+
+      .gallery-container {
+        position: relative;
+        background: #000;
+        border-right: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .gallery-slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-height: 500px;
+      }
+
+      .gallery-slides img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .gallery-slides img.active {
+        opacity: 1;
+      }
+
+      .card-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        overflow-y: auto;
+      }
+
+      .card-text {
+        line-height: 1.6;
+        font-size: 1rem;
+        color: #ddd;
+      }
+
+      .card-text ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+        list-style-type: square;
+        color: var(--accent);
+      }
+
+      /* Кнопки галереи */
+      .gallery-prev,
+      .gallery-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--border);
+        color: white;
+        padding: 1rem 1.2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s;
+        border-radius: 4px;
+      }
+
+      .gallery-prev:hover,
+      .gallery-next:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .gallery-prev {
+        left: 1rem;
+      }
+
+      .gallery-next {
+        right: 1rem;
+      }
+
+      /* Адаптивность */
+      @media (max-width: 768px) {
+        .map-container,
+        .cards-container {
+          width: 95%;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .gallery-container {
+          height: 300px;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding: 0.5rem;
+        }
+
+        .card-content {
+          padding: 1.5rem;
+        }
+
+        iframe {
+          height: 300px;
+        }
+      }
+
+      footer {
+        margin-top: auto;
+        background: #111;
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      footer p {
+        margin: 0.5rem 0;
+        color: var(--accent);
+      }
+
+      /* Исправленные стили карточек */
+
+      /* Остальные стили остаются без изменений */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Шедевры Карла Росси</h1>
+    </header>
+
+    <div class="map-container">
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A90420d0b43f6073d2262efce573916b0a55177e649bca38d581845ec123cdcfa&amp;source=constructor"
+        frameborder="0"
+      ></iframe>
+    </div>
+
+    <!-- Обновлённая карточка -->
+    <div class="card">
+      <div class="card-grid">
+        <div class="gallery-container">
+          <div class="gallery-slides">
+            <img src="/assets/img/shtab1.png" class="active" alt="Фото 1" />
+            <img src="/assets/img/shtab2.jpg" alt="Фото 2" />
+            <!-- <img src="/assets/img/cat1.jpg" alt="Фото 3" /> -->
+          </div>
+          <button class="gallery-prev">‹</button>
+          <button class="gallery-next">›</button>
+        </div>
+        <div class="card-content">
+          <h3>Здание Генерального штаба</h3>
+          <div class="card-text">
+            <p>
+              Здание Генерального штаба на Дворцовой площади построено Росси в
+              1819–1829 годах по проекту Карла Росси. Здание состоит из двух
+              корпусов, соединенных триумфальной аркой, которая символизирует
+              победу России в Отечественной войне 1812 года. Влияние античности
+              проявляется в использовании классических ордеров, скульптурных
+              композиций и симметричных форм, а также множества колонн и
+              пилястр. Фасады украшены колоннами и пилястрами, что подчеркивает
+              влияние античной архитектуры.
+            </p>
+            <!-- Дополнительный контент -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-grid">
+        <div class="gallery-container">
+          <div class="gallery-slides">
+            <img src="/assets/img/rossi1.png" class="active" alt="Фото 1" />
+            <img src="/assets/img/rossi2.png" alt="Фото 2" />
+            <!-- <img src="/assets/img/cat3.jpg" alt="Фото 3" /> -->
+          </div>
+          <button class="gallery-prev">‹</button>
+          <button class="gallery-next">›</button>
+        </div>
+        <div class="card-content">
+          <h3>Улица Зодчества Росси</h3>
+          <div class="card-text">
+            <p>
+              Улица Зодчего Росси, созданная Карлом Росси в 1820-х годах, —
+              образец классицизма. Ее длина — 220 метров, ширина — 22 метра.
+              Влияние античности проявляется в строгой симметрии, использовании
+              колонн и ордерной системы. Фасады зданий украшены пилястрами и
+              фронтонами, подчеркивая классический стиль.
+            </p>
+            <!-- Дополнительный контент -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Куратор проекта: Иванов Иван</p>
+      <p>Контакты: example@email.com</p>
+      <p>Телефон: +7 (999) 123-45-67</p>
+    </footer>
+  </body>
+</html>
+<!-- JavaScript для галереи -->
+<script>
+  document.querySelectorAll(".gallery-container").forEach((container) => {
+    const slides = container.querySelectorAll("img");
+    let current = 0;
+
+    const showSlide = (index) => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    };
+
+    container.querySelector(".gallery-next").addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    container.querySelector(".gallery-prev").addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    // Инициализация первого слайда
+    showSlide(0);
+  });
+</script>
